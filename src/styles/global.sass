@@ -1,0 +1,296 @@
+// ====================
+//      FONT
+// ==============================
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&subset=chinese-traditional,japanese')
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext')
+
+// ====================
+//      COLORS
+// ==============================
+$c_orange_01: #FFBC0A
+$c_orange_02: #F18F01
+
+$c_blue: #2274A5
+
+$c_black: #333
+$c_white: #ECECEC
+
+// --------------------
+//      SCROLL
+// ------------------------------
+$colorBg: $c_white
+$colorOutline: white
+$colorOutlineFade: rgba($c_black, 0.5)
+
+// ====================
+//      SIZE
+// ==============================
+
+// --------------------
+//      SCROLL
+// ------------------------------
+$widthMouse: 26px
+$heightMouse: 44px
+$borderMouse: 3px
+
+$posMouse: 8px
+$posText: 2px
+
+$sizeTrackball: 5px
+$posTrackball: 10px
+$shrinkTrackball: 0.4
+
+$animDuration: 7s
+
+// ====================
+//      MIXIN
+// ==============================
+= center_position
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+= center_flex($j: center, $a: center)
+  display: flex
+  justify-content: $j
+  align-items: $a
+
+= size($w, $h: $w, $bdrs: 0)
+  width: $w
+  height: $h
+  border-radius: $bdrs
+
+// ====================
+//      KEYFRAMES
+// ==============================
+
+// --------------------
+//      SCROLL
+// ------------------------------
+@keyframes colorSlide
+  0%
+    background-position: 0% 100%
+  20%
+    background-position: 0% 0%
+  21%
+    background-color: $colorOutlineFade
+  29.99%
+    background-color: $colorOutline
+    background-position: 0% 0%
+  30%
+    background-color: $colorOutlineFade
+    background-position: 0% 100%
+  50%
+    background-position: 0% 0%
+  51%
+    background-color: $colorOutlineFade
+  59%  
+    background-color: $colorOutline
+    background-position: 0% 0%
+  60%
+    background-color: $colorOutlineFade
+    background-position: 0% 100%
+  80%
+    background-position: 0% 0%
+  81%
+    background-color: $colorOutlineFade
+  90%, 100%
+    background-color: $colorOutline
+
+@keyframes trackBallSlide
+  0%
+    opacity: 1
+    transform: scale(1) translateY(-$posTrackball)
+  6%
+    opacity: 1
+    transform: scale(0.9) translateY($posTrackball / 4)
+  14%
+    opacity: 0
+    transform: scale($shrinkTrackball) translateY($posTrackball * 2)
+  15%, 19%
+    opacity: 0
+    transform: scale($shrinkTrackball) translateY(-$posTrackball)
+  28%, 29.99%
+    opacity: 1
+    transform: scale(1) translateY(-$posTrackball)
+  30%
+    opacity: 1
+    transform: scale(1) translateY(-$posTrackball)
+  36%
+    opacity: 1
+    transform: scale(0.9) translateY($posTrackball / 4)
+  44%
+    opacity: 0
+    transform: scale($shrinkTrackball) translateY($posTrackball * 2)
+  45%, 49%
+    opacity: 0
+    transform: scale($shrinkTrackball) translateY(-$posTrackball)
+  58%, 59.99%
+    opacity: 1
+    transform: scale(1) translateY(-$posTrackball)
+  60%
+    opacity: 1
+    transform: scale(1) translateY(-$posTrackball)
+  66%
+    opacity: 1
+    transform: scale(0.9) translateY($posTrackball / 4)
+  74%
+    opacity: 0
+    transform: scale($shrinkTrackball) translateY($posTrackball * 2)
+  75%, 79%
+    opacity: 0
+    transform: scale($shrinkTrackball) translateY(-$posTrackball)
+  88%, 100%
+    opacity: 1
+    transform: scale(1) translateY(-$posTrackball)
+
+@keyframes nudgeMouse
+  0%
+    transform: translateY(0)
+  20%
+    transform: translateY($posMouse)
+  30%
+    transform: translateY(0)
+  50%
+    transform: translateY($posMouse)
+  60%
+    transform: translateY(0)
+  80%
+    transform: translateY($posMouse)
+  90%
+    transform: translateY(0)
+
+@keyframes nudgeText
+  0%
+    transform: translateY(0)
+  20%
+    transform: translateY($posText)
+  30%
+    transform: translateY(0)
+  50%
+    transform: translateY($posText)
+  60%
+    transform: translateY(0)
+  80%
+    transform: translateY($posText)
+  90%
+    transform: translateY(0)
+
+@keyframes colorText
+  21%
+    color: $colorOutlineFade
+  30%
+    color: $colorOutline
+  51%
+    color: $colorOutlineFade
+  60%
+    color: $colorOutline
+  81%
+    color: $colorOutlineFade
+  90%
+    color: $colorOutline
+
+// --------------------
+//      NAVITEMS
+// ------------------------------
+@keyframes glitching
+  100%
+    transform: translate(0px, 0px)
+  95%
+    transform: translate(0.5px, 0.05px)
+  90%
+    transform: translate(0.6px, -0.3px)
+  85%
+    transform: translate(1.2px, 0px)
+  80%
+    transform: translate(1.2px, 0.2px)
+  75%
+    transform: translate(0.5px, 1px)
+  70%
+    transform: translate(0.3px, 1.2px)
+  65%
+    transform: translate(-2.1px, 0.7px)
+  60%
+    transform: translate(3.6px, 0.4px)
+  55%
+    transform: translate(0.45px, 1.8px)
+  50%
+    transform: translate(-3px, -1px)
+  45%
+    transform: translate(-4.4px, 1.1px)
+  40%
+    transform: translate(-4.2px, 2.4px)
+  35%
+    transform: translate(2.6px, 1.3px)
+  30%
+    transform: translate(-1.4px, 2.8px)
+  25%
+    transform: translate(6px, 0.75px)
+  20%
+    transform: translate(0px, -1.6px)
+  15%
+    transform: translate(-5.95px, -0.85px)
+  10%
+    transform: translate(3.6px, 3.6px)
+  5%
+    transform: translate(-0.95px, -0.95px)
+
+@keyframes fadingIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+// ====================
+//      DEBUG
+// ==============================
+*
+  // border: 1px solid #000
+
+// ====================
+//      ALL
+// ==============================
+*
+  font-family: 'Ubuntu', 'Noto Sans TC'
+  letter-spacing: 1.5px
+  line-height: 150%
+  position: relative
+
+html, body
+  width: 100%
+  min-height: 100vh
+  -webkit-overflow-scrolling: touch
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
+
+body
+  background-color: $c_white
+
+// --------------------
+//      RESET
+// ------------------------------
+html, body, h1, h2, h3, h4, h5, h6, hr, p, ul, li
+  margin: 0
+  padding: 0
+
+ul
+  list-style: none
+
+button, input, select, textarea, label
+  margin: 0
+
+button
+  &:focus
+    outline: none
+
+a
+  text-decoration: none
+
+// ====================
+//      MAIN
+// ==============================
+
+// ====================
+//      RWD
+// ==============================
